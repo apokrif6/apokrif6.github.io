@@ -22,7 +22,7 @@ title: apokrif6
 email: j.berenchan@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write about game programming, Unreal Engine and C++
-baseurl:
+baseurl: ""
 url: https://apokrif6.github.io/
 github_username: apokrif6
 
