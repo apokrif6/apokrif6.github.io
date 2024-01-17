@@ -27,7 +27,7 @@ url: https://apokrif6.github.io/
 github_username: apokrif6
 
 # Build settings
-theme: jekyll-dash
+remote_theme: jekyll-dash
 plugins:
   - jekyll-feed
 
