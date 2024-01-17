@@ -30,6 +30,7 @@ remote_theme: bitbrain/jekyll-dash
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - liquid-md5
 
 # Exclude from processing.
 # The following items will not be processed, by default.
