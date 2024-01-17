@@ -22,7 +22,6 @@ title: apokrif6
 email: j.berenchan@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write about game programming, Unreal Engine and C++
-baseurl: /blog
 url: https://apokrif6.github.io/
 github_username: apokrif6
 
@@ -30,6 +29,7 @@ github_username: apokrif6
 remote_theme: bitbrain/jekyll-dash
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
