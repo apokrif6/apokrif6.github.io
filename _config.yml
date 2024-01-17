@@ -23,6 +23,8 @@ email: j.berenchan@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write about game programming, Unreal Engine and C++
 url: https://apokrif6.github.io/
+
+avatar_source: github
 github_username: apokrif6
 
 # Build settings
