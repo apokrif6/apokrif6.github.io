@@ -26,6 +26,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Write about game programming, Unreal Engine and C++
 url: https://apokrif6.github.io/
 
+paginate: 5
+
 dash:
   avatar_source: github
   github_username: apokrif6
