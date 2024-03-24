@@ -40,10 +40,11 @@ bool EnumNameWasFound = StaticEnum<EMyComponentSocket>()->FindAuthoredNameString
 //They all returns "TopSocket"
 ```
 
-Also there are also no-authored versions. But you should **AVOID** them, if you want to use your enums as strings, because they could be changed by reflection.
+Also there are no-authored versions. But you should **AVOID** them, if you want to use your enums as strings, because they could be changed by reflection.
 ```c++
 StaticEnum<EMyComponentSocket>()->GetNameStringByValue(static_cast<int64>(EMyComponentSocket::TopSocket));
 
+//Don't use it
 //You can never be sure that it will return the same value in build and editor
 ```
 
