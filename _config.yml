@@ -32,6 +32,14 @@ dash:
   avatar_source: github
   github_username: apokrif6
 
+social_links:
+  - url: https://www.linkedin.com/in/eugen-berencian
+    icon: linkedin-square
+    color: cyan
+  - url: https://github.com/apokrif6
+    icon: github-square
+    color: yellow
+
 # Build settings
 remote_theme: bitbrain/jekyll-dash
 plugins:
