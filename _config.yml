@@ -29,16 +29,16 @@ url: https://apokrif6.github.io/
 paginate: 5
 
 dash:
+  social_links:
+    - url: https://linkedin.com/in/eugen-berencian
+      icon: linkedin-square
+      color: cyan
+    - url: https://github.com/apokrif6
+      icon: github-square
+      color: yellow
+
   avatar_source: github
   github_username: apokrif6
-
-social_links:
-  - url: https://www.linkedin.com/in/eugen-berencian
-    icon: linkedin-square
-    color: cyan
-  - url: https://github.com/apokrif6
-    icon: github-square
-    color: yellow
 
 # Build settings
 remote_theme: bitbrain/jekyll-dash
