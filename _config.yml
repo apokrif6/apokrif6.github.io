@@ -31,7 +31,7 @@ paginate: 5
 dash:
   social_links:
     - url: https://linkedin.com/in/eugen-berencian
-      icon: linkedin-square
+      icon: linkedin
       color: cyan
     - url: https://github.com/apokrif6
       icon: github-square
