@@ -42,7 +42,7 @@ FDamageStruct Damage;
 ```
 Technically, it works.
 
-![Damage struct](https://apokrif6.github.io/assets/img/damage-struct.png)
+![Damage struct](https://apokrif6.github.io/assets/img/generic_numeric_structures/damage-struct.png)
 
 But imagine case. Now you need to make same with character's speed.
 Will you define `FSpeedStruct`? Definitely not. We need more generics!
@@ -60,7 +60,7 @@ UPROPERTY(EditDefaultsOnly)
 FInt32Interval Damage {10, 20};
 ```
 
-![Damage struct](https://apokrif6.github.io/assets/img/fint-32-interval.png)
+![F32Interval](https://apokrif6.github.io/assets/images/generic_numeric_structures/fint32_interval.png)
 
 So creating your own interval structures has no sense because of `FXInterval`
 
@@ -101,7 +101,7 @@ FInt32Point Damage {10, 20};
 
 And yeah, this works:
 
-![Generic int struct](https://apokrif6.github.io/assets/img/generic-int-struct.png)
+![Generic int struct](https://apokrif6.github.io/assets/img/generic_numeric_structures/generic-int-struct.png)
 
 The only issue, there are `X` and `Y` names of variables, because of generic.
 But from my perspective, it is fair price for ability to declare generic X-Y struct.
