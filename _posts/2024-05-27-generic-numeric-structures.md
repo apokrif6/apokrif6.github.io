@@ -42,7 +42,7 @@ FDamageStruct Damage;
 ```
 Technically, it works.
 
-![Damage struct](https://apokrif6.github.io/assets/images/generic_numeric_structures/damage-struct.png)
+![Damage struct](https://apokrif6.github.io/assets/images/generic_numeric_structures/damage_struct.png)
 
 But imagine case. Now you need to make same with character's speed.
 Will you define `FSpeedStruct`? Definitely not. We need more generics!
@@ -101,7 +101,7 @@ FInt32Point Damage {10, 20};
 
 And yeah, this works:
 
-![Generic int struct](https://apokrif6.github.io/assets/images/generic_numeric_structures/generic-int-struct.png)
+![Generic int struct](https://apokrif6.github.io/assets/images/generic_numeric_structures/generic_int_struct.png)
 
 The only issue, there are `X` and `Y` names of variables, because of generic.
 But from my perspective, it is fair price for ability to declare generic X-Y struct.
