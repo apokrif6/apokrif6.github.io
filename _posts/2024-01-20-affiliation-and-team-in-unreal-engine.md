@@ -2,21 +2,21 @@
 title: Affiliation and Team in Unreal Engine
 ---
 <h3>Problem</h3>
-You start creating in-game AI, and learning about perception.
-And as soon you start using ***Sensing***, you are faced with ***Detection by Affiliation***.
+You start creating in-game AI and learning about perception.
+Then, while using ***Sensing***, you are faced with ***Detection by Affiliation***.
 
-But if you are using blueprints, you will never know what it really is.
-And just mark all checkboxes, without understanding what does it really mean.
+Yet in blueprints, there is not much you can do to get a solid grasp on ***Affiliation***.
+At best, you check all checkboxes, experiment and move on without understanding what it is.
 
 So what is it?
 
-Unfortunately, ***Affiliation*** could be set only with C++, but it's very powerful concept
+***Affiliation*** is a very powerful concept which, unfortunately, could be set only in C++.
 
 Every controller in game has affiliation towards another controller.
-It means that having two controllers, you can make them ***hostile*** to each other in context of Unreal.
+It means that two controllers can be made ***hostile*** to each other in context of Unreal.
 
-That perception sense with hostile affiliation will detect those "enemies" or "friends", if you corresponding checkbox.
-And you could write your own systems which are using this.
+Perception sense with hostile affiliation will recognize controllers as "enemies" or "friends", based on corresponding checkbox.
+You can write your own systems utilizing this.
 
 <h3>Teams</h3>
 So, Unreal offers us three affiliations:
@@ -34,7 +34,7 @@ namespace ETeamAttitude
 };
 ```
 
-Let's look into default implementation of affiliation checking:
+Let's look into the default implementation of affiliation checking:
 
 ```c++
 virtual ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const
@@ -69,15 +69,15 @@ protected:
 };
 ```
 
-You define team of your controller with an ID.
-And after it, your controller checks attitude with another actor. Not necessarily controller, because you can implement
-**IGenericTeamAgentInterface** everywhere. But I strongly recommend use controller for characters :)
+Team of your controller is defined by ID.
+Afterwards, your controller checks attitude with another actor. It doesn't have to be a controller, because you can implement
+**IGenericTeamAgentInterface** everywhere. That said, I strongly recommend using controller for characters :)
 
-<h3>Let's dive into real example</h3>
-In your RPG game you have player, squad allies and enemies.
-Player and allies are friendly to each other, enemies are hostile to both of them.
+<h3>Let's dive into real life example</h3>
+Imagine that in your RPG game you have a player, squad of allies and some enemies.
+Player and their allies are friendly to each other, enemies are hostile to both of them.
 
-Start with enum:
+Let's start with enum:
 
 ```c++
 UENUM(BlueprintType)
@@ -90,7 +90,7 @@ enum class ETeam : uint8
 };
 ```
 
-Next one will be PlayerController:
+Next one will be the PlayerController:
 
 ```c++
 UCLASS()
@@ -123,7 +123,7 @@ public:
 };
 ```
 
-And finish with AIController:
+And finally AIController:
 
 ```c++
 UCLASS()
@@ -164,22 +164,24 @@ protected:
 };
 ```
 
-Don't forget that you can set ID with this method, if you need:
+ID can also be set with this method, when needed:
+
 ```c++
 SetGenericTeamId(StaticCast<uint8>(Team));
 ```
 
 
 <h3>Conclusion</h3>
-So now, our **Player** is friend for **Ally** and hostile for **Enemy**.
+Now, our **Player** is friendly to **Ally** and hostile to **Enemy**.
 
-And Ally is friendly for Player and another Allies, and hostile for Enemies.
+Mutually, Ally is friendly to Player and another Allies, while being hostile to Enemies.
 
-Now your perception finally working as you expected.
+Hopefully that clarifies how to make the perception work as expected.
 
-But it's not end.
-You could have so many ***"teams"***, and use them by overriding ***GetTeamAttitudeTowards*** as you with.
-For example, you can have a "berserk" mode when ally could attack everybody. Or some enemies could be Neutral by
+But there is more.
+
+You can define as many ***"teams"*** as you need, and use them by overriding ***GetTeamAttitudeTowards*** as you wish.
+For example, you can add a "berserk" mode when an ally can attack everyone, or some enemies could be Neutral by
 default.
-Your fantasy is only the limit.
 
+Your fantasy is the only limit.

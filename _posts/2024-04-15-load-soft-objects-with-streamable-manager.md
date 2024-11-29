@@ -1,44 +1,44 @@
----
+-
 title: Load soft objects with StreamableManager
 ---
 <h3>Soft Object</h3>
-I suppose that you know what soft object is, but if no, you could read it [here](https://dev.epicgames.com/community/learning/tutorials/kx/unreal-engine-all-about-soft-and-weak-pointers)
+This post assumes understanding of soft objects, you can read more about them [here](https://dev.epicgames.com/community/learning/tutorials/kx/unreal-engine-all-about-soft-and-weak-pointers)
 
-The main (but not only one) difference:
-- hard refs are loaded in memory
-- soft refs are not loaded, but could be loaded by yourself
+The main difference between hard and soft references:
+- hard refs are automatically loaded into memory
+- soft refs need to be loaded manually into memory
 
 <h3>Loading</h3>
-There are two ways how to load your object. Synchronous and Asynchronous.
+There are two ways how your object can be loaded. It is either Synchronous or Asynchronous loading.
 
-If you are loading data on initialization, for example at game start, synchronous loading probably will be the best option. It is easy and simple.
-But if you need to load anything during gameplay, you should use asynchronous loading. Because synchronous loading will stop thread, and your game will stutter.
+In case you are loading data during initialization, for example at game start, synchronous loading probably will be the best option. It is easy and simple.
+However, when you need to load anything during gameplay, you should be using asynchronous loading. Otherwise, synchronous loading will stall the thread, causing stutters to your game.
 
-Imagine two cases.
-- You have **HUD** widget in your game. Player always should see this HUD, so it is ok to load it synchronous and have it in memory.
-- You have tutorial widget in your game. Player probably will see tutorial for first few hours. But after it player could never open a tutorial in menu.
+Consider the following cases:
+- You have **HUD** widget in your game. Player always should see this HUD, so it is okay to load it synchronously and have it in memory.
+- You have tutorial widget in your game. Player probably will only see tutorial for first few hours. After that, player can never open a tutorial in menu.
 
 Only two cases, but I hope you get the idea. These assets should be loaded synchronously and asynchronously respectively.
-You can't start game without loaded **HUD** widget. And you can start game without tutorial widget, to use your RAM for something more important.
+You have to start the game with loaded **HUD** widget, while it is benefical to start the game without tutorial widget, so that your RAM can be used for something more important.
 
-If you want load synchronous, you can use ***LoadSynchronous()*** method.
+For synchronous loading, you can use ***LoadSynchronous()*** method.
 
 ```c++
 TSubclassOf<MyClass> LoadedClass = MySoftClass.LoadSynchronous();
 ```
-This will load your class in memory. If it is big class and there is action in your game, that's probably will stutter.
+This will load your class into memory. If it is a large class and there is an action in your game, that will probably stutter.
 
-But we can avoid it with **StreamableManager**.
+We can avoid this with **StreamableManager**.
 You can access it via:
 ```c++
 FStreamableManager& StreamableManager = UAssetManager::GetStreamableManager();
 ```
 
-It is native class for managing streaming assets in and keeping them in memory.
+It is a native class that manages asset streaming and keeping them in memory.
 
-By the way, you could use ***RequestSyncLoad()*** if you want to.
+By the way, you can use ***RequestSyncLoad()*** if you want to.
 But we will focus on ***RequestAsyncLoad()***. 
-The main purpose of this method is ability to bind lambda to it.
+The main purpose of this method is to bind lambda to it.
 ```c++
 FStreamableManager& StreamableManager = UAssetManager::GetStreamableManager();
 StreamableManager.RequestAsyncLoad(MySoftClass.ToSoftObjectPath(), [this] {
@@ -46,10 +46,10 @@ StreamableManager.RequestAsyncLoad(MySoftClass.ToSoftObjectPath(), [this] {
 });
 ```
 
-Also, you could define priority of loading with **TAsyncLoadPriority**.
+Also, you can specify loading priority with **TAsyncLoadPriority**.
 0 is default, and 100 is high priority.
-With this, you could create your own loading sequence.
-So if you need load something with high priority, just pass parameter:
+With this, you can create your own loading sequence.
+For example, when you need to load something with high priority, just pass a parameter:
 ```c++
 //you don't need to store reference to StreamableManager, you can use it as singleton
 UAssetManager::GetStreamableManager().RequestAsyncLoad(MySoftClass.ToSoftObjectPath(), [this] {
@@ -57,14 +57,14 @@ UAssetManager::GetStreamableManager().RequestAsyncLoad(MySoftClass.ToSoftObjectP
 }, FStreamableManager::AsyncLoadHighPriority);
 ```
 
-With this, lambda-callback will be called after asset will be loaded.
+With this, lambda-callback will be called after asset is loaded.
 If asset is in memory already, callback will be called immediately.
 
 <h3>Conclusion</h3>
-Avoiding hard references is best-practice.
-But to use soft objects properly, you should care how and when load them.
+Avoiding hard references is considered a best practice.
+But to use soft objects properly, you should care about how and when to load them.
 
-Load synchronous that you 100% need to load before your gameplay. 
+Load synchronously something that you 100% need to be loaded before your gameplay. 
 
-Load asynchronous anything you probably will be need during gameplay, but don't need to store it all the time, because there is probability that your player could never need this.
-And if will, don't make player struggle with stutter.
+Load asynchronously anything you will probably need during gameplay, but don't need to store all the time, because there is probability that your player will never need this.
+And in case player will need it, don't make them struggle with stutter.

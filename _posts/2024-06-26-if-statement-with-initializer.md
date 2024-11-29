@@ -3,21 +3,21 @@ title: If statement with initializer
 ---
 <h3>What it is</h3>
 This feature was added in [C++17](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0305r0.html). What does it mean for us?
-We can initialize a variable inside if statement, and perform the actual conditional check after initialization.
+We can initialize a variable inside an if statement, and perform the actual conditional check after initialization.
 
 | Statement | Equivalent | Iterations |
 |----------|----------|----------|
 | if (init; cond) E;    | { init; while(cond) { E; break; } }   | Once while cond holds   |
 | if (init; cond) E; else F;   | (more complex)   | Once   |
 
-Tehnically, new if looks like:
+"New" if statement looks like that:
 
 ```c++
 if (init; condition)
 ```
 
 <h3>Guard clause</h3>
-Here is example of guard clause:
+Here is an example of guard clause:
 
 ```c++
 AMyPlayerCharacter* PC = UMyFunctionLibrary::GetMyPlayerCharacter(this);
@@ -31,14 +31,14 @@ if (AMyPlayerCharacter* PC = UMyFunctionLibrary::GetMyPlayerCharacter(this))
   PC->DoStuff();
 }
 ```
-Second one is one-line less. It is just if with simple condition, because condition is permitted to be:
+Second one is one line shorter. It is just an if statement with simple condition which is permitted to be:
 > declaration of a single non-array variable with a brace-or-equals initializer
 
-So techically, there is implicit condition. But **it is not initializer with coniditonal**!
-And you can use it in previous versions of C++.
+Techically, there is an implicit condition. But **it is not an initializer with a coniditonal**!
+You can use guard clause in previous versions of C++.
 
 <h3>Initializer with condition</h3>
-If you want use C++17's if statement with initializer, you should provide explicit condition:
+For C++17 if statement with initializer, you must provide explicit condition:
 
 ```c++
 if (int32 RandomNumber = FMath::RandRange(0, 100); RandomNumber < MinimalChance)
@@ -57,10 +57,10 @@ if (AMyPlayerCharacter* PC = UMyFunctionLibrary::GetMyPlayerCharacter(this);
   PC->DoStuff();
 }
 ```
-Note, you should care about checking on `nullptr`. Because **first statement is not condition anymore, it is just initializer**.
+Note that is your responsibility to perform `nullptr` checks, because **first statement is not a condition anymore, it is just an initializer**.
 
-Remember, that conditional scope accept any condition, so you can combine it any way you would like to.
+Remember, that conditional scope accept any condition, so you can combine it any way you want.
 
 <h3>Conclusion</h3>
-For me, using features provided by technology is absolutely good practice. And be up-to-date is a good practice too.
-So using `if statement with initializers` will make your code cleaner and more *modern*.
+Personally, using features provided by technology is an absolutely good practice. Being up-to-date is a good practice as well.
+To conclude, `if statement with initializers` will make your code more *modern* and cleaner.
