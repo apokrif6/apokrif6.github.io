@@ -58,6 +58,6 @@ Simple character locomotion animation test in Unreal Engine 5.
 ---
 <br>
 
-## Other smaller projects on my github
+### Other smaller projects on my github
 
 ![Click here](https://github.com/apokrif6)
