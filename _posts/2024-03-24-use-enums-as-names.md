@@ -4,12 +4,12 @@ title: Enums as name
 <h3>Enums</h3>
 Technically, enum type is a set of **predefined constants**.
 
-So it is a good practice, that you use it as set of options.
-But there is a problem in Unreal, that a lot of things could be used only with strings.
-For example, sockets.
+It is considered a good practice to use them as set of options.
+However, many things in Unreal are usable with strings only,
+take sockets for example.
 
-Imagine, you have actor that do some stuff related do components and sockets.
-So you create enum:
+Let's imagine that you have an actor that does some stuff related to components and sockets.
+You decide to create enum:
 ```c++
 UENUM(BlueprintType)
 enum class EMyComponentSocket : uint8
@@ -19,16 +19,16 @@ enum class EMyComponentSocket : uint8
     TopSocket,
 };
 ```
-And now you need attach something to socket with name **TopSocket**. Also, you would like to use name as map key in blueprints properties. So you want to use enum, instead of hardcoded string.
-But how to?
+Now something needs to be attached to a socket named **TopSocket**. Also, said enum must be used as map key in blueprint properties.
+So, you want to use enum for both cases and avoid hardcoded string, but don't know how.
 
 <h3>GetAuthoredNameStringByValue()</h3>
-The best way to do it - to use **authored** functions.
+The best way to do this is to use **authored** functions.
 
-They returns the unlocalized logical name originally assigned to the enum at creation.
-By default it is short name, but it could be overriden in child classes with some internal names.
-This name is consistent in cooked and editor builds.
-So it will guarantee that it wil returns same name whole time.
+These functions return the unlocalized logical name originally assigned to the enum at creation.
+By default it is the short name, but it could be overriden in child classes to return some internal names.
+Additionally, returned name remains identical in both cooked and editor builds.
+Authored functions guarantee to return the same name every time.
 ```c++
 FString EnumString = StaticEnum<EMyComponentSocket>()->GetAuthoredNameStringByValue(static_cast<int64>(EMyComponentSocket::TopSocket));
 
@@ -37,10 +37,10 @@ FName EnumName = FName(*StaticEnum<EMyComponentSocket>()->GetAuthoredNameStringB
 FString FoundEnumName;
 bool EnumNameWasFound = StaticEnum<EMyComponentSocket>()->FindAuthoredNameStringByValue(FoundEnumName, static_cast<int64>(EMyComponentSocket::TopSocket));
 
-//They all returns "TopSocket"
+//All return "TopSocket"
 ```
 
-Also there are no-authored versions. But you should **AVOID** them, if you want to use your enums as strings, because they could be changed by reflection.
+Also, there are non-authored versions. You should **AVOID** them when you want to use your enums as strings, as they might be changed by reflection.
 ```c++
 StaticEnum<EMyComponentSocket>()->GetNameStringByValue(static_cast<int64>(EMyComponentSocket::TopSocket));
 

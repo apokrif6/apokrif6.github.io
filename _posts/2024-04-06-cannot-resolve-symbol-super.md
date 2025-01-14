@@ -4,7 +4,7 @@ title: Cannot resolve symbol 'super'
 <h3>Explanation</h3>
 First of all, native C++ doesn't have ***Super***.
 
-Java has, Python has, Ruby has. But C++ hasn't. You should use **ParentClassName** instead.
+It is present in Java, Python, Ruby yet not in C++ where you have to use **ParentClassName** instead.
 
 ```c++
 class Foo
@@ -35,10 +35,10 @@ void AGameNameCharacter::BeginPlay()
 ```
 
 <h3>Reflection</h3>
-You can use ***Super::***, because of UE's reflection system.
+You can use ***Super::*** due to Unreal Engine reflection system.
 
-Every class which is marked as **UCLASS** supports reflection, and has all advantages of it.
-So let's find declaration of **UCLASS**:
+Every class marked as **UCLASS** supports reflection and all its advantages.
+Let's find the declaration of **UCLASS**:
 ```c++
 #define DECLARE_CLASS( TClass, TSuperClass, TStaticFlags, TStaticCastFlags, TPackage, TRequiredAPI  ) \
 private: \
@@ -83,30 +83,30 @@ public: \
 		::operator delete(InMem); \
 	}
 ```
-So now we have:
+Here we have:
 ```c++
 typedef TSuperClass Super
 ```
-**[typedef](https://en.cppreference.com/w/cpp/language/typedef)** is specifier which creates alias for our type.
+**[typedef](https://en.cppreference.com/w/cpp/language/typedef)** is a specifier which creates alias for type. In this case **Super** is an alias to **TSuperClass**.
 
-And when build tool creates our **UObject** we pass all necessary data:
+Build tool creates our **UObject** based on the data from the macro:
 ```c++
 DECLARE_CLASS(UObject,UObject,CLASS_Abstract|CLASS_Intrinsic|CLASS_MatchedSerializers,CASTCLASS_None,TEXT("/Script/CoreUObject"),COREUOBJECT_API)
 ```
-That's why our **UObject**, which is marked **UCLASS**, for example Character, GameMode, Actor, etc. has **Super::** and **ThisClass::** by default.
+That's why our **UObject** or Character, GameMode, Actor or any other class marked as **UCLASS** has **Super::** and **ThisClass::** by default.
 
 <h3>Super for non UCLASS</h3>
-Sometimes, when we works with low-level API we need to inherit some classes. And intuitively, we use ***Super***.
-But here is problem. No reflection, no ***Super***.
+Sometimes, when we work with low-level API we also work with derived classes. And intuitively, we use ***Super***.
+This is invalid because no reflection means no ***Super***.
 
-What we can do? We can specify our own **typedef**.
-Here is example.
+One way to solve this problem is to specify our own **typedef**.
+For example:
 ```c++
 //NON UCLASS
 class FOurEditorDragDropAction final : public FGraphEditorDragDropAction
 {
 protected:
-    //you could name your variable like you want. but keep in mind that Super is kind of convention
+    //you can name your variable whatever you want, but keep in mind that Super is considered a convention
     typedef FGraphEditorDragDropAction Super;
 
     virtual void OnDrop(bool bDropWasHandled, const FPointerEvent& MouseEvent) override;
@@ -119,12 +119,12 @@ void FOurEditorDragDropAction::OnDrop(bool bDropWasHandled, const FPointerEvent&
 	GraphPanel->OnStopMakingConnection();
 	GraphPanel->OnEndRelinkConnection();
 	
-	//if we hadn't typedef, we should use FGraphEditorDragDropAction::OnDrop(bDropWasHandled, MouseEvent);
+	//without typedef, we must use FGraphEditorDragDropAction::OnDrop(bDropWasHandled, MouseEvent);
 	Super::OnDrop(bDropWasHandled, MouseEvent);
 }
 ```
 
-Another way, use **[__super](https://learn.microsoft.com/en-us/cpp/cpp/super)** keyword. It used by Visual Studio compiler, which is supported by Unreal Engine by default.
+Alternatively, use **[__super](https://learn.microsoft.com/en-us/cpp/cpp/super)** keyword. It is used by Visual Studio compiler, which is supported by Unreal Engine by default.
 ```c++
 void FOurEditorDragDropAction::OnDrop(bool bDropWasHandled, const FPointerEvent& MouseEvent)
 {
