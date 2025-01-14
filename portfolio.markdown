@@ -27,7 +27,8 @@ This plugin provides a new graph-based interface to create combos based on monta
 
 [![ComboGraphShowcase](https://img.youtube.com/vi/tODbzmV0z-w/0.jpg)](https://youtu.be/tODbzmV0z-w)
 
-
+---
+<br>
 
 ## SokudoEngine
 Small game engine written in C++ with Vulkan for rendering
@@ -39,18 +40,24 @@ Small game engine written in C++ with Vulkan for rendering
 
 ![SokudoEngineDemo](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/Demo.png)
 
+---
+<br>
 
-## LocomotionTest
+## LocomotionExample
 Simple character locomotion animation test in Unreal Engine 5.
 
 ### Key Features:
 
     - Unreal Engine 5 Pose Warping
-    - Leans
+    - Additive Leans
 
 ### 🎬 Showcase
 
 [![LocomotionTestShowcase](https://img.youtube.com/vi/NAeK-juTPIw/0.jpg)](https://youtu.be/NAeK-juTPIw)
 
 ---
+<br>
 
+## Other smaller projects on my github
+
+![Click here](https://github.com/apokrif6)
