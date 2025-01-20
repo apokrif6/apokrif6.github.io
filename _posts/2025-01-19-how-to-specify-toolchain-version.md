@@ -5,7 +5,9 @@ title: How to specify toolchain version in Unreal Engine
 A toolchain refers to the collection of software tools used to compile, link, and package a game or application for a specific platform. It typically includes compilers, linkers, libraries, and other utilities needed to build and deploy projects
 
 <h3>Problem</h3>
-The default toolchain used by Unreal Engine for Windows development is `Microsoft Visual C++ (MSVC)`. This toolchain is automatically configured when you set up Visual Studio using Unreal Engine’s official [documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-visual-studio-development-environment-for-cplusplus-projects-in-unreal-engine).
+The default toolchain used by Unreal Engine for Windows development is `Microsoft Visual C++ (MSVC)`.
+This toolchain is automatically configured when you set up Visual Studio using Unreal Engine’s official [documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-visual-studio-development-environment-for-cplusplus-projects-in-unreal-engine).
+
 ![IncludedToolchain](https://apokrif6.github.io/assets/images/specify_toolchain_version/example_included_toolchain.png)
 
 For most projects, this setup works seamlessly and ensures compatibility between the engine and the build process.
@@ -16,7 +18,6 @@ However, issues can arise in specific cases where:
 - Unreal Engine explicitly bans certain toolchain versions due to known issues.
 
 
-While the default configuration is sufficient for most cases, there may be situations where compiler issues or other engine-related problems require you to specify a different toolchain version.
 One of those issues is communicated by `UnrealBuildTool` when you try to compile the project:
 ```
 ERROR: UnrealBuildTool has banned the MSVC 14.32.31326-14.32.31328 toolchains due to compiler issues. Please install a different toolchain from the Visual Studio installer
