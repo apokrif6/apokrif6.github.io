@@ -19,9 +19,9 @@
 # in the templates via {{ site.myvariable }}.
 
 title: apokrif6
-email: j.berenchan@gmail.com
+email: eugen.berencian@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Gameplay/AI programmer.
+  Game programmer.
   </br>
   Write about game programming, Unreal Engine and C++
 url: https://apokrif6.github.io/
@@ -30,6 +30,12 @@ paginate: 5
 
 dash:
   social_links:
+    - url: https://apokrif6.github.io/about
+      icon: address-card
+      color: blue
+    - url: https://apokrif6.github.io/portfolio
+      icon: folder
+      color: purple
     - url: https://linkedin.com/in/eugen-berencian
       icon: linkedin
       color: cyan
