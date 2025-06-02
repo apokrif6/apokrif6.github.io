@@ -27,6 +27,8 @@ This plugin provides a new graph-based interface to create combos based on monta
 
 [![ComboGraphShowcase](https://img.youtube.com/vi/tODbzmV0z-w/0.jpg)](https://youtu.be/tODbzmV0z-w)
 
+[Repository 📂](https://github.com/apokrif6/ComboGraph)
+
 ---
 <br>
 
@@ -39,6 +41,8 @@ Unreal Engine tool written in Slate to parse and show `memreport` file in user-f
 
 [![MemreportViewerShowcase](https://img.youtube.com/vi/Z8CuVX3FD7c/0.jpg)](https://youtu.be/Z8CuVX3FD7c)
 
+[Repository 📂](https://github.com/apokrif6/MemreportViewer)
+
 ---
 <br>
 
@@ -48,15 +52,20 @@ Small game engine written in C++ with Vulkan for rendering
 ### Key Features:
 
     - Vulkan renderer
-    - Vertex skinning
+    - Animation system
+    - SPIR-V shader compilation and attribute reflection
 
-![SokudoEngineDemo](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/Demo.png)
+### 🎬 Showcase
+
+![SokudoEngineDemo](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngineAnimation)
+
+[Repository 📂](https://github.com/apokrif6/SokudoEngine)
 
 ---
 <br>
 
 ## LocomotionExample
-Simple character locomotion animation test in Unreal Engine 5.
+Simple character locomotion animation test in Unreal Engine 5
 
 ### Key Features:
 
