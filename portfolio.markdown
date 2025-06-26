@@ -57,7 +57,7 @@ Small game engine written in C++ with Vulkan for rendering
 
 ### 🎬 Showcase
 
-![SokudoEngineDemo](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngineAnimation.gif)
+[![SokudoEngineShowcase](https://img.youtube.com/vi/1xgfGVZw5Y0/0.jpg)](https://youtu.be/1xgfGVZw5Y0)
 
 [Repository 📂](https://github.com/apokrif6/SokudoEngine)
 
