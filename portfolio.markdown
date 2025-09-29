@@ -57,24 +57,29 @@ Small game engine written in C++ with Vulkan for rendering
 
 ### 🎬 Showcase
 
-![SokudoEngineDemo](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngineAnimation.gif)
+[![SokudoEngineShowcase](https://img.youtube.com/vi/1xgfGVZw5Y0/0.jpg)](https://youtu.be/1xgfGVZw5Y0)
 
 [Repository 📂](https://github.com/apokrif6/SokudoEngine)
 
 ---
 <br>
 
-## LocomotionExample
-Simple character locomotion animation test in Unreal Engine 5
+## ArenaStrike
+Demo game with locomotion system based on new UE5 animation framework and Lyra's approach. GAS included
 
 ### Key Features:
-
-    - Unreal Engine 5 Pose Warping
-    - Additive Leans
-
+    - GAS Input bindings
+    - Character locomotion system includes:
+      - Different gaits
+      - Pivots
+      - Turn In Place
+      - Hands IK for weapon
+      - Feet sync
+      - Distance matching
+      - Warpings
 ### 🎬 Showcase
 
-[![LocomotionTestShowcase](https://img.youtube.com/vi/NAeK-juTPIw/0.jpg)](https://youtu.be/NAeK-juTPIw)
+[![LocomotionTestShowcase](https://img.youtube.com/vi/DwiP4VmswnM/0.jpg)](https://youtu.be/DwiP4VmswnM)
 
 ---
 <br>
