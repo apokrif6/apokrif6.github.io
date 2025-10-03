@@ -53,11 +53,15 @@ Small game engine written in C++ with Vulkan for rendering
 
     - Vulkan renderer
     - Animation system
+    - Scene system
+    - Serialization system for saving and loading levels
     - SPIR-V shader compilation and attribute reflection
 
 ### 🎬 Showcase
 
-[![SokudoEngineShowcase](https://img.youtube.com/vi/1xgfGVZw5Y0/0.jpg)](https://youtu.be/1xgfGVZw5Y0)
+![Animations Example](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngine_Animations.gif)
+![Scene Example](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngine_SceneSystem.gif)
+![Serialization Example](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngine_SceneSerialization.gif)
 
 [Repository 📂](https://github.com/apokrif6/SokudoEngine)
 
