@@ -2,7 +2,8 @@
 title: TNonNullPtr — Non-Nullable Raw Pointers in Unreal Engine
 ---
 
-### What is TNonNullPtr
+<h3>What is TNonNullPtr</h3>
+
 `TNonNullPtr<T>` is a **non-nullable, non-owning raw pointer** that **guarantees** the pointer is never `nullptr`. It wraps a `T*` but **bans null** at compile-time and runtime via `ensureMsgf`.
 
 ```c++
@@ -77,7 +78,7 @@ TestActor = nullptr;                    // Banned
 ```c++
 TArray<TNonNullPtr<ATestActor>> GetTestActors()
 {
-  	TArray<TNonNullPtr<ATestActor>> TestActors;
+    TArray<TNonNullPtr<ATestActor>> TestActors;
 
     //...
 
@@ -85,7 +86,7 @@ TArray<TNonNullPtr<ATestActor>> GetTestActors()
 }
 ```
 
-<h4>Works with `TOptional<T>`</h4>
+<h4>Works with TOptional</h4>
 
 ```c++
 TOptional<TNonNullPtr<ATestActor>> OptionalActor;
@@ -101,6 +102,19 @@ if (OptionalActor)
 
 ```c++
 ATestActor* RawTestActor = TestActor; // OK — but only after ensure
+```
+
+<h3>Best Practice</h3>
+
+Use `TNonNullPtr` only when you control both sides and can guarantee validity.
+
+```c++
+// API contract: Caller MUST pass valid pointer
+void TestFunction(TNonNullPtr<ATestActor> TestActor)
+{
+    // SAFE to use directly — IF caller respects contract
+    TestActor->DoMagic();
+}
 ```
 
 <h3>When to use it?</h3>
