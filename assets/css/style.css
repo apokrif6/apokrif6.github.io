@@ -525,7 +525,7 @@ readers do not read off random characters that represent icons */
 
 .fa-chart-pie:before { content: ""; }
 
-.fa-check:before { content: ""; }
+.fa-check:before { content: ""; }
 
 .fa-check-circle:before { content: ""; }
 
@@ -3062,7 +3062,7 @@ html.direction--rtl pre { direction: ltr; text-align: left; }
 .post ul > li { text-align: left; margin-bottom: 0.6em; list-style: none; margin-left: 0; }
 .theme--dark .post ul > li { color: #ade0b9; }
 .theme--light .post ul > li { color: #50BD6A; }
-.post ul > li:before { content: ""; font-family: "Font Awesome 5 Free"; font-weight: 900; font-style: normal; font-variant: normal; text-rendering: auto; font-weight: 900; -webkit-font-smoothing: antialiased; margin-right: 0.5em; }
+.post ul > li:before { content: ""; font-family: "Font Awesome 5 Free"; font-weight: 900; font-style: normal; font-variant: normal; text-rendering: auto; font-weight: 900; -webkit-font-smoothing: antialiased; margin-right: 0.5em; }
 .post ul, .post ol { padding: 0; margin-left: 0.5em; }
 .post > blockquote { margin-top: 2em; margin-bottom: 1em; margin-left: 0.5em; font-style: italic; }
 .theme--dark .post > blockquote { color: #fddb8d; }
