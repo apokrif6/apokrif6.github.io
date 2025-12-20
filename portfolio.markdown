@@ -52,6 +52,7 @@ Small game engine written in C++ with Vulkan for rendering
 ### Key Features:
 
     - Vulkan renderer
+    - PBR rendering
     - Animation system
     - Scene system
     - Serialization system for saving and loading levels
@@ -59,6 +60,7 @@ Small game engine written in C++ with Vulkan for rendering
 
 ### 🎬 Showcase
 
+![Overview](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngine_EngineOverview2.png)
 ![Animations Example](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngine_Animations.gif)
 ![Scene Example](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngine_SceneSystem.gif)
 ![Serialization Example](https://apokrif6.github.io/assets/images/portfolio/sokudoengine/SokudoEngine_SceneSerialization.gif)
@@ -81,6 +83,7 @@ Demo game with locomotion system based on new UE5 animation framework and Lyra's
       - Feet sync
       - Distance matching
       - Warpings
+      
 ### 🎬 Showcase
 
 [![LocomotionTestShowcase](https://img.youtube.com/vi/DwiP4VmswnM/0.jpg)](https://youtu.be/DwiP4VmswnM)
