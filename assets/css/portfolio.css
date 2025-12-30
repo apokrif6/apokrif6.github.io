@@ -1,0 +1,172 @@
+.portfolio-section-title {
+    margin: 60px 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.4rem;
+    color: #fff;
+    border-bottom: 2px solid #444;
+    padding-bottom: 15px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #000;
+    display: block;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease;
+}
+
+.project-card:hover img {
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+.project-corner-label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-top-left-radius: 8px;
+    color: #fff;
+    text-align: right;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+}
+
+.label-project-name {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.label-role {
+    display: block;
+    font-size: 0.75rem;
+    color: #a855f7;
+    font-weight: 600;
+    margin: 2px 0;
+}
+
+.label-years {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.project-card:hover .project-corner-label {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.project-info-panel {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 25px 30px;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.project-card:hover .project-info-panel {
+    transform: translateY(0);
+}
+
+.info-title {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+}
+
+.info-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.info-details-list {
+    margin: 0;
+    padding: 0 0 0 20px;
+    color: #ddd;
+    font-size: 0.85rem;
+    list-style-type: square;
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.info-details-list li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.info-desc {
+    color: #efefef;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    padding-left: 2px;
+    border-left: 3px solid #a855f7;
+}
+
+.info-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    flex-shrink: 0;
+}
+
+.info-tag {
+    font-size: 0.7rem;
+    background: #a855f726;
+    color: #a855f7 !important;
+    padding: 3px 10px;
+    border: 1px solid #a855f74d;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.info-details-list::-webkit-scrollbar {
+    width: 4px;
+    background: #a855f7;
+    border-radius: 10px;
+}
+
+.info-details-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.info-details-list
