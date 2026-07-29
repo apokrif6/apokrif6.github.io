@@ -120,7 +120,7 @@ void TestFunction(TNonNullPtr<ATestActor> TestActor)
 <h3>When to use it?</h3>
 
 | Scenario                                             | Use `TNonNullPtr<T>`?                                    |
-|------------------------------------------------------|----------------------------------------------------------|
+|:------------------------------------------------------:|:----------------------------------------------------------:|
 | Function parameter guaranteed non-null               | Yes                                                      |
 | Return value from a function that never returns null | Yes                                                      |
 | Class member that is always valid after construction | Yes                                                      |
